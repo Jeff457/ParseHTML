@@ -84,7 +84,6 @@ public class ParseHTML
                 String title = doc.title();
                 if (title.isEmpty() || title.startsWith("??"))
                     title = validatedURL.getPath();
-
                 appendToFile(docId, title);  // save to file
             } catch (IllegalArgumentException | IOException e) {
                 System.out.println("Bad URL, attempting to save path as title");
@@ -145,6 +144,7 @@ public class ParseHTML
         String outputFile = "titles.tsv";
         String output = docID + "\t" + title;
         BufferedWriter writer = null;
+        urlTitles.put(docID, title);
 
         try {
             File file = new File(outputFile);
