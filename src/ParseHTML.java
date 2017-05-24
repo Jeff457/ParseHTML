@@ -137,6 +137,7 @@ public class ParseHTML
 
         connection.commit();
         connection.close();
+        insert_docid_url_title.close();
     }
 
     private static void appendToFile(String docID, String title)
